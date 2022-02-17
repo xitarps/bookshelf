@@ -22,5 +22,12 @@ module Types
     def author(first_name:)
       Author.where(first_name: first_name).first
     end
+
+    field :authors, [Types::AuthorType], null: true, description: "Retrive all authors" do
+      argument :sort, String, required: false, description: "Sort by String 'desc' or 'asc'"
+    end
+    def authors(sort: nil)
+      sort ? Author.all.order(first_name: sort.to_sym) : Author.all
+    end
   end
 end
