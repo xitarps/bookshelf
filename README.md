@@ -1,24 +1,12 @@
-# README
+# BookShelf - GraphQL study
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Heroku api:
+https://book-shelf-xita.herokuapp.com/graphql
 
-Things you may want to cover:
+## techinal info:
+ - ruby 3.0.3
+ - postgres
+ - heroku
+ - gem 'graphql' - https://github.com/rmosolgo/graphql-ruby
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ * exploring graphql api with: https://github.com/altair-graphql/altair
