@@ -13,6 +13,8 @@ class Types::AuthorType < Types::BaseObject
 
   field :coordinates,       Types::CoordinatesType, null: false, description: "Can get the latitude and longitude"
 
+  field :publication_years, [Int], null: false, description: "Array of publication years"
+
   def full_name
     "#{object.first_name} #{object.last_name}"
   end
