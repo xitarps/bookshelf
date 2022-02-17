@@ -14,8 +14,9 @@ ActiveRecord::Schema.define(version: 2022_02_17_031219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
-  create_table "authors", force: :cascade do |t|
+  create_table "authors", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.integer "birth_year"
