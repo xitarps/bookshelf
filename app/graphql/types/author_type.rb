@@ -11,7 +11,10 @@ class Types::AuthorType < Types::BaseObject
   field :full_name,         String, null: false, description: "The full name"
   field :reverse_full_name, String, null: false, description: "The full name backwards"
 
+  field :coordinates,       Types::CoordinatesType, null: false, description: "Can get the latitude and longitude"
+
   def full_name
     "#{object.first_name} #{object.last_name}"
   end
+
 end
