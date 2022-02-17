@@ -4,6 +4,6 @@ class Types::AuthorType < Types::BaseObject
   field :last_name,  String,  null: false, description: "The Last name as String"
   field :birth_year, Int,     null: false, description: "The year of birth as Integer"
   field :is_alive,   Boolean, null: false, description: "If is alive as Boolean"
-  field :created_at, String,  null: false, description: "Timestamp of creation"
-  field :updated_at, String,  null: false, description: "Timestamp of last update"# , camelize: false # ruby/snake case
+  field :created_at, GraphQL::Types::ISO8601DateTime,  null: false, description: "Timestamp of creation"
+  field :updated_at, GraphQL::Types::ISO8601DateTime,  null: false, description: "Timestamp of last update"# , camelize: false # ruby/snake case
 end
