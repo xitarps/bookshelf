@@ -8,12 +8,19 @@ module Types
     # They will be entry points for queries on your schema.
 
     # TODO: remove me
-    field :test_field, String, null: false,description: "An example field added by the generator" do
+    field :test_field, String, null: false, description: "An example field added by the generator" do
       argument :name, String, required: true
     end
     def test_field(name:)
       Rails.logger.info context[:time]
       "Hello #{name}"
+    end
+
+    field :author, Types::AuthorType , null: true, description: "Returns one Author instance" do
+      argument :first_name, String, required: true
+    end
+    def author(first_name:)
+      Author.where(first_name: first_name).first
     end
   end
 end
