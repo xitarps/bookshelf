@@ -1,4 +1,6 @@
 class Types::AuthorType < Types::BaseObject
+  field :errors,     [Types::ErrorType], null:  false
+
   field :id,         ID,      null: false, description: "id, UUID"
   field :first_name, String,  null: false, description: "The first name as String"
   field :last_name,  String,  null: false, description: "The Last name as String"
@@ -17,6 +19,10 @@ class Types::AuthorType < Types::BaseObject
 
   def full_name
     "#{object.first_name} #{object.last_name}"
+  end
+
+  def errors
+    object.errors.map { |error| {field_name: error.attribute, errors: object.errors[error.attribute]}}
   end
 
 end
