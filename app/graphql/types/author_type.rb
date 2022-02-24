@@ -2,10 +2,10 @@ class Types::AuthorType < Types::BaseObject
   field :errors,     [Types::ErrorType], null:  false
 
   field :id,         ID,      null: false, description: "id, UUID"
-  field :first_name, String,  null: false, description: "The first name as String"
-  field :last_name,  String,  null: false, description: "The Last name as String"
+  field :first_name, String,  null: true, description: "The first name as String"
+  field :last_name,  String,  null: true, description: "The Last name as String"
   field :birth_year, Int,     null: false, description: "The year of birth as Integer"
-  field :is_alive,   Boolean, null: false, description: "If is alive as Boolean"
+  field :is_alive,   Boolean, null: true, description: "If is alive as Boolean"
   field :created_at, GraphQL::Types::ISO8601DateTime,  null: false, description: "Timestamp of creation"
   field :updated_at, GraphQL::Types::ISO8601DateTime,  null: false, description: "Timestamp of last update"# , camelize: false # ruby/snake case
 
@@ -23,6 +23,11 @@ class Types::AuthorType < Types::BaseObject
 
   def errors
     object.errors.map { |error| {field_name: error.attribute, errors: object.errors[error.attribute]}}
+  end
+
+  def self.authorized?(object, context)
+    # !object.is_alive?
+    object.is_alive?
   end
 
 end
