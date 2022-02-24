@@ -20,3 +20,13 @@ class Types::AuthorType < Types::BaseObject
   end
 
 end
+
+class Types::AuthorInputType < GraphQL::Schema::InputObject
+  graphql_name "AuthorInputType"
+  description "All the atributes needed to create an author"
+
+  argument :first_name, String,  required: false
+  argument :last_name,  String,  required: false
+  argument :birth_year, Int,     required: false
+  argument :is_alive,   Boolean, required: false
+end
