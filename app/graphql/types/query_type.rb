@@ -29,5 +29,15 @@ module Types
     def authors(sort: nil)
       sort ? Author.all.order(first_name: sort.to_sym) : Author.all
     end
+
+    field :login, String, null: false, description: "Login user" do
+      argument :email, String, required: true
+      argument :password, String, required: true
+    end
+    def login(email:, password:)
+      if user = User.where(email: email).first.authenticate(password)
+        user.sessions.create.key
+      end
+    end
   end
 end

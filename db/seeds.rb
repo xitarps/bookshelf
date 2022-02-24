@@ -14,3 +14,6 @@ authors = [
 ]
 
 Author.create(authors)
+
+User.create(email: 'tester@tester.com' , password: '123456', is_superadmin: true)
+User.create(email: 'user@user.com' , password: '654321', is_superadmin: false)
