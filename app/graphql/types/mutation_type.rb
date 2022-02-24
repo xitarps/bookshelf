@@ -28,5 +28,12 @@ module Types
       existing&.update author.to_h
     end
 
+    field :delete_author, Boolean, null: false, description: "Delete an author" do
+      argument :first_name, String, required: true
+    end
+    def delete_author(first_name:)
+      author = Author.where(first_name: first_name).first
+      !!author&.destroy
+    end
   end
 end
