@@ -19,5 +19,14 @@ module Types
     # end
 
     field :create_author, Types::AuthorType, mutation: Mutations::CreateAuthor, null: true, description: "Create an author"
+
+    field :update_author, Boolean, null: false, description: "Update an author" do
+      argument :author, Types::AuthorInputType, required: true
+    end
+    def update_author(author:)
+      existing = Author.where(first_name: author[:first_name]).first
+      existing&.update author.to_h
+    end
+
   end
 end
