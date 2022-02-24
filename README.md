@@ -11,7 +11,7 @@ https://book-shelf-xita.herokuapp.com/graphql
 
  * exploring graphql api with: https://github.com/altair-graphql/altair
 
-## Some data already set on seeds
+## Some data already set on seeds:
 ```
 Authors:
   first_name: "Zabuza", last_name: "Momoshi",
@@ -31,3 +31,6 @@ Users:
   email: "tester@tester.com", password: "123456", is_superadmin: true
   email: "user@user.com"    , password: "654321", is_superadmin: false
 ```
+
+## Thanks to / Source:
+(Alex Deva) - https://www.udemy.com/course/basics-of-graphql-with-ruby-on-rails/
